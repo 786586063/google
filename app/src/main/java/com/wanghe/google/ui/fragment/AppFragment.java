@@ -6,8 +6,6 @@ import android.view.View;
 
 /**
  * 应用
- * @author Kevin
- * @date 2015-10-27
  */
 public class AppFragment extends BaseFragment {
 

@@ -7,8 +7,6 @@ import com.wanghe.google.ui.view.LoadingPage;
 
 /**
  * 游戏
- * @author Kevin
- * @date 2015-10-27
  */
 public class GameFragment extends BaseFragment {
 

@@ -7,8 +7,6 @@ import com.wanghe.google.ui.view.LoadingPage;
 
 /**
  * 排行
- * @author Kevin
- * @date 2015-10-27
  */
 public class HotFragment extends BaseFragment {
 

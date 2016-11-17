@@ -13,8 +13,6 @@ import android.support.v7.app.ActionBarActivity;
  * 2. 解决support-v4冲突问题
  * 3. 继承ActionBarActivity
  * 
- * @author Kevin
- * @date 2015-10-27
  */
 public class BaseActivity extends ActionBarActivity {
 

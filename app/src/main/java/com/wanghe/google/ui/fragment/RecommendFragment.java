@@ -7,8 +7,6 @@ import com.wanghe.google.ui.view.LoadingPage;
 
 /**
  * 推荐
- * @author Kevin
- * @date 2015-10-27
  */
 public class RecommendFragment extends BaseFragment {
 

@@ -10,8 +10,6 @@ import com.wanghe.google.utils.UIUtils;
 /**
  * 首页
  * 
- * @author Kevin
- * @date 2015-10-27
  */
 public class HomeFragment extends BaseFragment {
 

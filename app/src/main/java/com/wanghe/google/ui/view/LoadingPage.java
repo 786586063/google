@@ -14,8 +14,6 @@ import com.wanghe.google.utils.UIUtils;
  * 
  * - 未加载 - 加载中 - 加载失败 - 数据为空 - 加载成功
  * 
- * @author Kevin
- * @date 2015-10-27
  */
 public abstract class LoadingPage extends FrameLayout {
 

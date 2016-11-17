@@ -25,7 +25,6 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- * Created by mwqi on 2014/6/19.
  */
 public class SystemUtils {
 
