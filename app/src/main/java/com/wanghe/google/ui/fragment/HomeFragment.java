@@ -1,5 +1,6 @@
 package com.wanghe.google.ui.fragment;
 
+import android.os.SystemClock;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 
 import com.wanghe.google.R;
 import com.wanghe.google.ui.adapter.MyBaseAdapter;
+import com.wanghe.google.ui.holder.BaseHolder;
+import com.wanghe.google.ui.holder.HomeHolder;
 import com.wanghe.google.ui.view.LoadingPage;
 import com.wanghe.google.utils.UIUtils;
 
@@ -53,28 +56,26 @@ public class HomeFragment extends BaseFragment {
 		}
 
 		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			ViewHolder holder = null;
-			if (convertView == null) {
-				convertView = View.inflate(UIUtils.getContext(),
-						R.layout.list_item_home, null);
-				holder = new ViewHolder();
-				holder.tvContent = (TextView) convertView
-						.findViewById(R.id.tv_list);
-				convertView.setTag(holder);
-			} else {
-				holder = (ViewHolder) convertView.getTag();
-			}
-
-			holder.tvContent.setText(getItem(position));
-
-			return convertView;
+		public BaseHolder<String> getHolder() {
+			return new HomeHolder();
 		}
+
+		//此方法在子线程调用
+		@Override
+		public ArrayList<String> onLoadMore() {
+			ArrayList<String> moreData = new ArrayList<>();
+			for (int i=0; i<20;i++){
+				moreData.add("测试更多的数据："+i);
+			}
+			SystemClock.sleep(2000);
+
+			return moreData;
+		}
+
+
 	}
 
-	static class ViewHolder {
-		public TextView tvContent;
-	}
+
 
 
 }
