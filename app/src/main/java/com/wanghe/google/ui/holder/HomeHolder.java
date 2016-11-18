@@ -4,13 +4,14 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.wanghe.google.R;
+import com.wanghe.google.domain.AppInfo;
 import com.wanghe.google.utils.UIUtils;
 
 /**
  * Created by 两三人 on 2016/11/17.
  */
 
-public class HomeHolder extends BaseHolder<String> {
+public class HomeHolder extends BaseHolder<AppInfo> {
     private TextView tvContent;
     @Override
     public View initView() {
@@ -22,8 +23,8 @@ public class HomeHolder extends BaseHolder<String> {
     }
 
     @Override
-    public void refreshView(String data) {
+    public void refreshView(AppInfo data) {
 
-        tvContent.setText(data);
+        tvContent.setText(data.des);
     }
 }

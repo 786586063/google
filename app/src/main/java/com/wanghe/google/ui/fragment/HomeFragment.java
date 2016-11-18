@@ -1,13 +1,10 @@
 package com.wanghe.google.ui.fragment;
 
-import android.os.SystemClock;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.wanghe.google.R;
+import com.wanghe.google.domain.AppInfo;
+import com.wanghe.google.http.protocol.HomeProtocol;
 import com.wanghe.google.ui.adapter.MyBaseAdapter;
 import com.wanghe.google.ui.holder.BaseHolder;
 import com.wanghe.google.ui.holder.HomeHolder;
@@ -23,7 +20,7 @@ import java.util.ArrayList;
  */
 public class HomeFragment extends BaseFragment {
 
-	private ArrayList<String> data;
+	public ArrayList<AppInfo> data;
 
 	// 如果加载数据成功, 就回调此方法, 在主线程运行
 	@Override
@@ -40,15 +37,14 @@ public class HomeFragment extends BaseFragment {
 	// 运行在子线程,可以直接执行耗时网络操作
 	@Override
 	public LoadingPage.ResultState onLoad() {
-		// 请求网络
-		data = new ArrayList<>();
-		for (int i= 0;i<20;i++){
-			data.add("测试数据："+i);
-		}
-		return LoadingPage.ResultState.STATE_SUCCESS;
+		HomeProtocol homeProtocol = new HomeProtocol();
+
+		data = homeProtocol.getData(0);
+
+		return check(data);
 	}
 
-	class HomeAdapter extends MyBaseAdapter<String> {
+	class HomeAdapter extends MyBaseAdapter<AppInfo> {
 
 
 		public HomeAdapter(ArrayList data) {
@@ -56,18 +52,16 @@ public class HomeFragment extends BaseFragment {
 		}
 
 		@Override
-		public BaseHolder<String> getHolder() {
+		public BaseHolder<AppInfo> getHolder() {
 			return new HomeHolder();
 		}
 
 		//此方法在子线程调用
 		@Override
-		public ArrayList<String> onLoadMore() {
-			ArrayList<String> moreData = new ArrayList<>();
-			for (int i=0; i<20;i++){
-				moreData.add("测试更多的数据："+i);
-			}
-			SystemClock.sleep(2000);
+		public ArrayList<AppInfo> onLoadMore() {
+			HomeProtocol protocol = new HomeProtocol();
+
+			ArrayList<AppInfo> moreData = protocol.getData(getListSize());
 
 			return moreData;
 		}

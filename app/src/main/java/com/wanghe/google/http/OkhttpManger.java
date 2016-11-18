@@ -24,9 +24,15 @@ import java.util.logging.LogRecord;
 
 public class OkhttpManger {
 
+    public static final String url = "http://127.0.0.1:8090/";
     private OkHttpClient client;
     private static OkhttpManger okhttpManger;
     private Handler mHandler;
+    private OkhttpManger(){
+        client = new OkHttpClient();
+        mHandler = new Handler(Looper.getMainLooper());
+
+    }
     /*
        单例模式
      */
@@ -35,11 +41,6 @@ public class OkhttpManger {
             okhttpManger = new OkhttpManger();
         }
         return okhttpManger;
-    }
-    private OkhttpManger(){
-        client = new OkHttpClient();
-        mHandler = new Handler(Looper.getMainLooper());
-
     }
 
     //对外公布的方法 <<<<<<<子线程中>>>>>>>>>>
