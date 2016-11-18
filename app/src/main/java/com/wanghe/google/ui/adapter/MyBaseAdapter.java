@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public abstract class MyBaseAdapter<T> extends BaseAdapter {
 
+    //必须重0开始
     private static    final int TYPE_NORMAL = 0; //正常布局类型
     private static final int TYPE_MORE = 1; //加载更多的布局类型
 
@@ -121,6 +122,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
                                     holder.setData(MoreHolder.STATE_LOAD_NONE);
                                     Toast.makeText(UIUtils.getContext(),"没有更多数据了",Toast.LENGTH_SHORT).show();
                                 }else{
+                                    //还有更多数据
                                     holder.setData(MoreHolder.STATE_LOAD_MORE);
                                 }
                                 //将更多数据追加到当前集合中
