@@ -29,9 +29,7 @@ public class HomeFragment extends BaseFragment {
 	@Override
 	public View onCreateSuccessView() {
 		MylistView view = new MylistView(UIUtils.getContext());
-		view.setSelector(new ColorDrawable());//设置默认选择器为全透明
-		view.setDivider(null); //去掉分割线
-		view.setCacheColorHint(Color.TRANSPARENT);//有时候滑动listView背景会变成黑色，此方法将背景变为全透明
+
 
 		HomeAdapter adapter = new HomeAdapter(data);
 		view.setAdapter(adapter);
