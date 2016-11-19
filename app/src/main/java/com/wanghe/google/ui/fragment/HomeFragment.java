@@ -1,5 +1,7 @@
 package com.wanghe.google.ui.fragment;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.ListView;
 
@@ -9,6 +11,7 @@ import com.wanghe.google.ui.adapter.MyBaseAdapter;
 import com.wanghe.google.ui.holder.BaseHolder;
 import com.wanghe.google.ui.holder.HomeHolder;
 import com.wanghe.google.ui.view.LoadingPage;
+import com.wanghe.google.ui.view.MylistView;
 import com.wanghe.google.utils.UIUtils;
 
 import java.util.ArrayList;
@@ -25,9 +28,11 @@ public class HomeFragment extends BaseFragment {
 	// 如果加载数据成功, 就回调此方法, 在主线程运行
 	@Override
 	public View onCreateSuccessView() {
-//		TextView view = new TextView(UIUtils.getContext());
-//		view.setText(getClass().getSimpleName());
-		ListView view = new ListView(UIUtils.getContext());
+		MylistView view = new MylistView(UIUtils.getContext());
+		view.setSelector(new ColorDrawable());//设置默认选择器为全透明
+		view.setDivider(null); //去掉分割线
+		view.setCacheColorHint(Color.TRANSPARENT);//有时候滑动listView背景会变成黑色，此方法将背景变为全透明
+
 		HomeAdapter adapter = new HomeAdapter(data);
 		view.setAdapter(adapter);
 

@@ -4,6 +4,7 @@ package com.wanghe.google.ui.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.wanghe.google.R;
@@ -55,6 +56,15 @@ public abstract class LoadingPage extends FrameLayout {
 		// 初始化加载失败布局
 		if (mErrorPage == null) {
 			mErrorPage = UIUtils.inflate(R.layout.page_error);
+			//点击重试
+			Button Retry = (Button) mErrorPage.findViewById(R.id.btn_retry);
+			Retry.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//重新加载数据
+					loadData();
+				}
+			});
 			addView(mErrorPage);
 		}
 
