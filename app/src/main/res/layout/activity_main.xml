@@ -6,7 +6,8 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_pager"
         android:layout_width="match_parent"
-        android:layout_height="42dp">
+        android:layout_height="42dp"
+        android:background="#fff">
 
     </android.support.design.widget.TabLayout>
 

@@ -18,8 +18,9 @@ import java.util.ArrayList;
 public abstract class MyBaseAdapter<T> extends BaseAdapter {
 
     //必须重0开始
-    private static    final int TYPE_NORMAL = 0; //正常布局类型
-    private static final int TYPE_MORE = 1; //加载更多的布局类型
+    private static final int TYPE_MORE = 0; //加载更多的布局类型
+    private static final int TYPE_NORMAL = 1; //正常布局类型
+
 
     private ArrayList<T> data;
    public MyBaseAdapter(ArrayList<T> data){
@@ -52,12 +53,12 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
         if (position == getCount() - 1){//最后一个
             return TYPE_MORE;
         }else {
-            return getInnerType();
+            return getInnerType(position);
         }
 
     }
     //预留接口，以便子类可以通过预留接口改变布局
-    public int getInnerType(){
+    public int getInnerType(int position){
         return TYPE_NORMAL;
     }
 
@@ -74,7 +75,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
             holder= new MoreHolder(hasMore());
 
             }else{
-                holder = getHolder();
+                holder = getHolder(position);
             }
 
 
@@ -102,7 +103,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
         return true;//默认都是有数据的
     }
     //返回当前的对象的holder，必须子类实现
-    public abstract BaseHolder<T> getHolder();
+    public abstract BaseHolder<T> getHolder(int position);
 
     private boolean isLoadMore = false; //标记是否加载更多，防止重负加载
     //加载更多数据

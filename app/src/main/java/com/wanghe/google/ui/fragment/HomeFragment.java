@@ -1,9 +1,6 @@
 package com.wanghe.google.ui.fragment;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.view.View;
-import android.widget.ListView;
 
 import com.wanghe.google.domain.AppInfo;
 import com.wanghe.google.http.protocol.HomeProtocol;
@@ -55,7 +52,7 @@ public class HomeFragment extends BaseFragment {
 		}
 
 		@Override
-		public BaseHolder<AppInfo> getHolder() {
+		public BaseHolder<AppInfo> getHolder(int position) {
 			return new HomeHolder();
 		}
 

@@ -53,7 +53,7 @@ public class MoreHolder extends BaseHolder<Integer> {
             case STATE_LOAD_NONE:
                 //隐藏加载更多
                 ll_load_more.setVisibility(View.GONE);
-                tv_error.setVisibility(View.VISIBLE);
+                tv_error.setVisibility(View.GONE);
                 break;
             case STATE_LOAD_ERROR:
                 ll_load_more.setVisibility(View.GONE);

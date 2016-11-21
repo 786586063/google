@@ -6,10 +6,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.widget.Toast;
 
 import com.wanghe.google.R;
 import com.wanghe.google.ui.fragment.BaseFragment;
 import com.wanghe.google.ui.fragment.FragmentFactory;
+import com.wanghe.google.ui.fragment.HomeFragment;
 import com.wanghe.google.utils.UIUtils;
 
 public class MainActivity extends BaseActivity {
@@ -28,14 +30,13 @@ public class MainActivity extends BaseActivity {
 
         mAdapter = new MyAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mAdapter);
-
         mPagerTab.setupWithViewPager(mViewPager);
         mPagerTab.setTabMode(TabLayout.MODE_SCROLLABLE);
 
         mPagerTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                int position = tab.getPosition();
+                 int position = tab.getPosition();
                 BaseFragment fragment = FragmentFactory.createFragment(position);
                 fragment.loadData();
             }
@@ -50,6 +51,7 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+
 
 
     }
