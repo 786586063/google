@@ -31,4 +31,5 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.6.0'
     compile 'com.squareup.okio:okio:1.6.0'
     compile 'it.sephiroth.android.library.picasso:picasso:2.5.2.4b'
+    compile files('libs/nineoldandroids-2.4.0.jar')
 }

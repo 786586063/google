@@ -4,5 +4,7 @@
     <dimen name="activity_vertical_margin">10dp</dimen>
     <dimen name="activity_little_normol">5dp</dimen>
     <dimen name="icon_dimen">45dp</dimen>
+    <dimen name="list_header_height">150dp</dimen>
+    <dimen name="datial_list_pading">3dp</dimen>
 
 </resources>

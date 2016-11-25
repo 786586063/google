@@ -63,4 +63,8 @@ public class HomeProtocol extends BaseProcotol<ArrayList<AppInfo>> {
         }
         return null;
     }
+
+    public ArrayList<String> getmPicList() {
+        return mPicList;
+    }
 }
